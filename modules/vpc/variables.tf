@@ -1,0 +1,17 @@
+variable "vpc_cidr" {
+  description = "CIDR block for the VPC"
+  type        = string
+  default     = "10.0.0.0/16"
+}
+
+variable "tags" {
+  description = "Tags to apply to all resources in the module"
+  type        = map(string)
+  default     = {}
+}
+
+variable "name_prefix" {
+  description = "Optional name prefix for resources"
+  type        = string
+  default     = ""
+}
