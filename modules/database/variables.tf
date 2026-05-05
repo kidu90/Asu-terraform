@@ -14,3 +14,8 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "dynamodb_kms_key_arn" {
+  description = "KMS key ARN to use for DynamoDB server-side encryption"
+  type        = string
+}

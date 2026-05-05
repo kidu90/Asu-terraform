@@ -22,3 +22,13 @@ output "cloudtrail_bucket_arn" {
   description = "ARN of the cloudtrail bucket"
   value       = aws_s3_bucket.cloudtrail.arn
 }
+
+output "dynamodb_table_name" {
+  description = "Name of the DynamoDB table for meter telemetry"
+  value       = aws_dynamodb_table.meter_telemetry.name
+}
+
+output "dynamodb_table_arn" {
+  description = "ARN of the DynamoDB table for meter telemetry"
+  value       = aws_dynamodb_table.meter_telemetry.arn
+}
