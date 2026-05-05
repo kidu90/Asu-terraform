@@ -41,7 +41,7 @@ resource "aws_iot_topic_rule" "meter_ingest" {
 
   sqs {
     role_arn   = var.iot_role_arn
-    queue_url  = var.sqs_queue_arn
+    queue_url  = aws_sqs_queue.meter_events.id
     use_base64 = false
   }
 

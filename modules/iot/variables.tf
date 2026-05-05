@@ -24,16 +24,6 @@ variable "dynamodb_table_name" {
   type        = string
 }
 
-variable "sns_topic_arn" {
-  description = "SNS topic ARN for alert notifications"
-  type        = string
-}
-
-variable "sqs_queue_arn" {
-  description = "SQS queue ARN consumed by meter processor"
-  type        = string
-}
-
 variable "private_app_subnet_ids" {
   description = "Private app subnet IDs for Lambda VPC configuration"
   type        = list(string)

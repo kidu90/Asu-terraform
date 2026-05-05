@@ -73,7 +73,7 @@ resource "aws_lambda_function" "meter_processor" {
   environment {
     variables = {
       DYNAMODB_TABLE = var.dynamodb_table_name
-      SNS_TOPIC_ARN  = var.sns_topic_arn
+      SNS_TOPIC_ARN  = aws_sns_topic.alerts.arn
       ENVIRONMENT    = var.environment
     }
   }
@@ -87,7 +87,7 @@ resource "aws_lambda_function" "meter_processor" {
 }
 
 resource "aws_lambda_event_source_mapping" "meter_events_to_processor" {
-  event_source_arn = var.sqs_queue_arn
+  event_source_arn = aws_sqs_queue.meter_events.arn
   function_name    = aws_lambda_function.meter_processor.arn
   batch_size       = 10
   enabled          = true
@@ -153,7 +153,7 @@ resource "aws_lambda_function" "anomaly_detector" {
 
   environment {
     variables = {
-      SNS_TOPIC_ARN = var.sns_topic_arn
+      SNS_TOPIC_ARN = aws_sns_topic.alerts.arn
     }
   }
 

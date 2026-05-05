@@ -1,5 +1,11 @@
-variable "region" {
+variable "aws_region" {
   description = "AWS region for resources"
+  type        = string
+  default     = "ap-south-1"
+}
+
+variable "region" {
+  description = "Legacy alias for AWS region"
   type        = string
   default     = "ap-south-1"
 }
@@ -14,6 +20,11 @@ variable "project_name" {
   description = "Project name for resource naming and tagging"
   type        = string
   default     = "aquasense"
+}
+
+variable "alert_email" {
+  description = "Email address used for SNS alerts"
+  type        = string
 }
 
 variable "tags" {

@@ -10,6 +10,12 @@ variable "tags" {
   default     = {}
 }
 
+variable "environment" {
+  description = "Environment name"
+  type        = string
+  default     = "dev"
+}
+
 variable "name_prefix" {
   description = "Optional name prefix for resources"
   type        = string
