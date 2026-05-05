@@ -17,3 +17,28 @@ output "dlq_arn" {
   description = "ARN of the SQS dead-letter queue"
   value       = aws_sqs_queue.meter_events_dlq.arn
 }
+
+output "meter_processor_arn" {
+  description = "ARN of the meter processor Lambda function"
+  value       = aws_lambda_function.meter_processor.arn
+}
+
+output "anomaly_detector_arn" {
+  description = "ARN of the anomaly detector Lambda function"
+  value       = aws_lambda_function.anomaly_detector.arn
+}
+
+output "iot_thing_type_name" {
+  description = "Name of the IoT thing type"
+  value       = aws_iot_thing_type.smart_meter.name
+}
+
+output "iot_policy_name" {
+  description = "Name of the IoT policy"
+  value       = aws_iot_policy.meter_policy.name
+}
+
+output "iot_rule_name" {
+  description = "Name of the IoT topic rule"
+  value       = aws_iot_topic_rule.meter_ingest.name
+}
