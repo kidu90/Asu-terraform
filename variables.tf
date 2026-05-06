@@ -33,6 +33,12 @@ variable "db_password" {
   sensitive   = true
 }
 
+variable "on_prem_ip" {
+  description = "On-premises public IP address for the customer gateway"
+  type        = string
+  default     = "1.2.3.4"
+}
+
 variable "tags" {
   description = "Additional tags to apply to resources"
   type        = map(string)

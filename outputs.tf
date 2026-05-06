@@ -33,9 +33,34 @@ output "vpc_id" {
   value       = module.vpc.vpc_id
 }
 
+output "nat_gateway_ids" {
+  description = "NAT gateway IDs"
+  value       = module.vpc.nat_gateway_ids
+}
+
+output "eip_public_ips" {
+  description = "Public IPs of NAT gateway Elastic IPs"
+  value       = module.vpc.eip_public_ips
+}
+
+output "vpn_connection_id" {
+  description = "Site-to-site VPN connection ID"
+  value       = module.vpc.vpn_connection_id
+}
+
+output "vpn_connection_tunnel1_address" {
+  description = "VPN tunnel 1 outside address"
+  value       = module.vpc.vpn_connection_tunnel1_address
+}
+
 output "dynamodb_table_name" {
   description = "DynamoDB table name"
   value       = module.database.dynamodb_table_name
+}
+
+output "aurora_cluster_endpoint" {
+  description = "Aurora cluster endpoint"
+  value       = module.database.aurora_cluster_endpoint
 }
 
 output "sqs_queue_url" {
@@ -76,6 +101,21 @@ output "dashboard_name" {
 output "guardduty_detector_id" {
   description = "GuardDuty detector ID"
   value       = module.monitoring.guardduty_detector_id
+}
+
+output "web_acl_arn" {
+  description = "WAF WebACL ARN"
+  value       = module.security.web_acl_arn
+}
+
+output "config_recorder_id" {
+  description = "AWS Config recorder ID"
+  value       = module.security.config_recorder_id
+}
+
+output "config_rule_names" {
+  description = "AWS Config managed rule names"
+  value       = module.security.config_rule_names
 }
 
 output "alb_dns_name" {

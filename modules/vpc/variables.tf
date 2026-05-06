@@ -21,3 +21,9 @@ variable "name_prefix" {
   type        = string
   default     = ""
 }
+
+variable "on_prem_ip" {
+  description = "On-premises public IP address for the customer gateway"
+  type        = string
+  default     = "1.2.3.4"
+}
