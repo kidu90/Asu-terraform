@@ -44,6 +44,11 @@ variable "raw_telemetry_bucket" {
   type        = string
 }
 
+variable "raw_telemetry_bucket_arn" {
+  description = "ARN of the S3 bucket for raw telemetry data"
+  type        = string
+}
+
 variable "tags" {
   description = "Tags to apply to IoT messaging resources"
   type        = map(string)

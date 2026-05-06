@@ -65,16 +65,17 @@ module "database" {
 }
 
 module "iot" {
-  source                 = "./modules/iot"
-  lambda_role_arn        = module.security.lambda_role_arn
-  dynamodb_table_name    = module.database.dynamodb_table_name
-  private_app_subnet_ids = module.vpc.private_app_subnet_ids
-  lambda_sg_id           = module.security.lambda_sg_id
-  iot_role_arn           = module.security.iot_role_arn
-  raw_telemetry_bucket   = module.database.raw_telemetry_bucket
-  alert_email            = var.alert_email
-  kms_key_arn            = module.security.kms_key_arn
-  tags                   = local.common_tags
+  source                   = "./modules/iot"
+  lambda_role_arn          = module.security.lambda_role_arn
+  dynamodb_table_name      = module.database.dynamodb_table_name
+  private_app_subnet_ids   = module.vpc.private_app_subnet_ids
+  lambda_sg_id             = module.security.lambda_sg_id
+  iot_role_arn             = module.security.iot_role_arn
+  raw_telemetry_bucket     = module.database.raw_telemetry_bucket
+  raw_telemetry_bucket_arn = module.database.raw_telemetry_bucket_arn
+  alert_email              = var.alert_email
+  kms_key_arn              = module.security.kms_key_arn
+  tags                     = local.common_tags
 }
 
 module "monitoring" {
@@ -103,4 +104,14 @@ module "compute" {
   sns_topic_arn            = module.iot.sns_topic_arn
   kms_key_arn              = module.security.kms_key_arn
   tags                     = local.common_tags
+}
+
+module "analytics" {
+  source                    = "./modules/analytics"
+  raw_telemetry_bucket      = module.database.raw_telemetry_bucket
+  raw_telemetry_bucket_arn  = module.database.raw_telemetry_bucket_arn
+  processed_data_bucket     = module.database.processed_data_bucket
+  processed_data_bucket_arn = module.database.processed_data_bucket_arn
+  kms_key_arn               = module.security.kms_key_arn
+  tags                      = local.common_tags
 }

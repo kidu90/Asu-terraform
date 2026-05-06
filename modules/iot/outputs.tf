@@ -42,3 +42,18 @@ output "iot_rule_name" {
   description = "Name of the IoT topic rule"
   value       = aws_iot_topic_rule.meter_ingest.name
 }
+
+output "kinesis_stream_name" {
+  description = "Name of the Kinesis Data Stream for meter data"
+  value       = aws_kinesis_stream.meter_stream.name
+}
+
+output "kinesis_stream_arn" {
+  description = "ARN of the Kinesis Data Stream for meter data"
+  value       = aws_kinesis_stream.meter_stream.arn
+}
+
+output "firehose_name" {
+  description = "Name of the Kinesis Firehose delivery stream"
+  value       = aws_kinesis_firehose_delivery_stream.meter_to_s3.name
+}

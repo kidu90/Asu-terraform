@@ -53,6 +53,21 @@ output "iot_rule_name" {
   value       = module.iot.iot_rule_name
 }
 
+output "kinesis_stream_name" {
+  description = "Kinesis Data Stream name for meter data"
+  value       = module.iot.kinesis_stream_name
+}
+
+output "kinesis_stream_arn" {
+  description = "Kinesis Data Stream ARN for meter data"
+  value       = module.iot.kinesis_stream_arn
+}
+
+output "firehose_name" {
+  description = "Kinesis Firehose delivery stream name"
+  value       = module.iot.firehose_name
+}
+
 output "dashboard_name" {
   description = "CloudWatch dashboard name"
   value       = module.monitoring.dashboard_name
@@ -71,4 +86,19 @@ output "alb_dns_name" {
 output "cloudfront_domain_name" {
   description = "CloudFront distribution domain name for portal access"
   value       = module.compute.cloudfront_domain_name
+}
+
+output "glue_database_name" {
+  description = "Glue catalog database name for telemetry"
+  value       = module.analytics.glue_database_name
+}
+
+output "crawler_name" {
+  description = "Glue crawler name for telemetry raw data"
+  value       = module.analytics.crawler_name
+}
+
+output "athena_workgroup_name" {
+  description = "Athena workgroup name for telemetry queries"
+  value       = module.analytics.athena_workgroup_name
 }
