@@ -29,16 +29,6 @@ variable "app_sg_id" {
   type        = string
 }
 
-variable "portal_tg_arn" {
-  description = "ARN of the portal target group"
-  type        = string
-}
-
-variable "smdp_tg_arn" {
-  description = "ARN of the smdp target group"
-  type        = string
-}
-
 variable "dynamodb_table_name" {
   description = "DynamoDB table name for ECS tasks"
   type        = string
@@ -71,11 +61,6 @@ variable "sns_topic_arn" {
 
 variable "kms_key_arn" {
   description = "ARN of the KMS key for encryption"
-  type        = string
-}
-
-variable "alb_dns_name" {
-  description = "DNS name of the Application Load Balancer"
   type        = string
 }
 

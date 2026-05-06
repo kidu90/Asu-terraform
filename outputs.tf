@@ -62,3 +62,13 @@ output "guardduty_detector_id" {
   description = "GuardDuty detector ID"
   value       = module.monitoring.guardduty_detector_id
 }
+
+output "alb_dns_name" {
+  description = "DNS name of the Application Load Balancer"
+  value       = module.compute.alb_dns_name
+}
+
+output "cloudfront_domain_name" {
+  description = "CloudFront distribution domain name for portal access"
+  value       = module.compute.cloudfront_domain_name
+}

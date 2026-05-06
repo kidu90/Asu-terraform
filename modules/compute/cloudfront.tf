@@ -1,6 +1,6 @@
 resource "aws_cloudfront_distribution" "portal" {
   origin {
-    domain_name = var.alb_dns_name
+    domain_name = aws_lb.alb.dns_name
     origin_id   = "asu-alb-origin"
 
     custom_origin_config {

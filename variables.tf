@@ -27,6 +27,12 @@ variable "alert_email" {
   type        = string
 }
 
+variable "db_password" {
+  description = "Master password for Aurora database"
+  type        = string
+  sensitive   = true
+}
+
 variable "tags" {
   description = "Additional tags to apply to resources"
   type        = map(string)

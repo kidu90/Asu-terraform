@@ -32,3 +32,23 @@ output "dynamodb_table_arn" {
   description = "ARN of the DynamoDB table for meter telemetry"
   value       = aws_dynamodb_table.meter_telemetry.arn
 }
+
+output "aurora_cluster_endpoint" {
+  description = "Aurora cluster endpoint"
+  value       = aws_rds_cluster.aurora.endpoint
+}
+
+output "aurora_reader_endpoint" {
+  description = "Aurora cluster reader endpoint"
+  value       = aws_rds_cluster.aurora.reader_endpoint
+}
+
+output "aurora_cluster_id" {
+  description = "Aurora cluster ID"
+  value       = aws_rds_cluster.aurora.id
+}
+
+output "aurora_database_name" {
+  description = "Aurora database name"
+  value       = aws_rds_cluster.aurora.database_name
+}

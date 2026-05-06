@@ -240,7 +240,7 @@ resource "aws_ecs_service" "portal" {
   }
 
   load_balancer {
-    target_group_arn = var.portal_tg_arn
+    target_group_arn = aws_lb_target_group.portal_tg.arn
     container_name   = "portal"
     container_port   = 8080
   }
@@ -270,7 +270,7 @@ resource "aws_ecs_service" "smdp" {
   }
 
   load_balancer {
-    target_group_arn = var.smdp_tg_arn
+    target_group_arn = aws_lb_target_group.smdp_tg.arn
     container_name   = "smdp"
     container_port   = 8080
   }
