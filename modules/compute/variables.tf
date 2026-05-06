@@ -74,6 +74,11 @@ variable "kms_key_arn" {
   type        = string
 }
 
+variable "alb_dns_name" {
+  description = "DNS name of the Application Load Balancer"
+  type        = string
+}
+
 variable "tags" {
   description = "Tags to apply to ALB resources"
   type        = map(string)
