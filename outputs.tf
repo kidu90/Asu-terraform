@@ -102,3 +102,13 @@ output "athena_workgroup_name" {
   description = "Athena workgroup name for telemetry queries"
   value       = module.analytics.athena_workgroup_name
 }
+
+output "notebook_instance_name" {
+  description = "SageMaker notebook instance name for forecasting"
+  value       = module.analytics.notebook_instance_name
+}
+
+output "notebook_instance_url" {
+  description = "SageMaker notebook instance URL for forecasting"
+  value       = module.analytics.notebook_instance_url
+}

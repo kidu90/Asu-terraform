@@ -22,3 +22,13 @@ output "glue_role_arn" {
   description = "ARN of the Glue IAM role"
   value       = aws_iam_role.glue_role.arn
 }
+
+output "notebook_instance_name" {
+  description = "Name of the SageMaker notebook instance for forecasting"
+  value       = aws_sagemaker_notebook_instance.forecasting_notebook.name
+}
+
+output "notebook_instance_url" {
+  description = "URL of the SageMaker notebook instance"
+  value       = aws_sagemaker_notebook_instance.forecasting_notebook.url
+}
